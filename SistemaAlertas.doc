@@ -1,0 +1,63 @@
+Documentación del Sistema de Alertas
+El sistema de alertas es una aplicación que permite gestionar y enviar alertas a usuarios registrados sobre diferentes temas. A continuación se detallan los principales componentes y funciones del sistema.
+
+Clases
+1. Usuario
+La clase Usuario representa a un usuario registrado en el sistema.
+
+Atributos:
+
+nombre (String): El nombre del usuario.
+alertasRecibidas (Array): Almacena las alertas que ha recibido el usuario.
+temasInteres (Array): Almacena los temas de interés del usuario.
+Métodos:
+
+recibirAlerta(alerta): Registra una alerta recibida por el usuario.
+marcarAlertaLeida(alerta): Marca una alerta como leída.
+2. Tema
+La clase Tema representa un tema sobre el cual se pueden enviar alertas.
+
+Atributos:
+nombre (String): El nombre del tema.
+3. Alerta
+La clase Alerta representa una alerta que puede ser enviada a usuarios sobre un tema específico.
+
+Atributos:
+
+mensaje (String): El mensaje de la alerta.
+tipo (String): El tipo de alerta (Urgente o Informativa).
+tema (Tema): El tema asociado a la alerta.
+fechaExpiracion (Date): La fecha y hora de expiración de la alerta (opcional).
+destinatario (Usuario): El usuario destinatario de la alerta (opcional).
+leida (Boolean): Indica si la alerta ha sido leída.
+Métodos:
+
+leer(): Marca la alerta como leída.
+get expirada(): Indica si la alerta ha expirado.
+4. SistemaAlertas
+La clase SistemaAlertas gestiona la lógica principal del sistema.
+
+Atributos:
+
+usuarios (Array): Almacena los usuarios registrados.
+temas (Array): Almacena los temas registrados.
+alertas (Array): Almacena todas las alertas enviadas.
+Métodos:
+
+registrarUsuario(nombre): Registra un nuevo usuario en el sistema.
+registrarTema(nombre): Registra un nuevo tema en el sistema.
+enviarAlerta(mensaje, tipo, tema, fechaExpiracion, destinatario): Envía una alerta a usuarios o a un usuario específico.
+obtenerAlertasNoLeidasUsuario(usuario): Obtiene todas las alertas no leídas para un usuario.
+obtenerAlertasNoLeidasTema(tema): Obtiene todas las alertas no leídas para un tema, ordenadas según especificaciones.
+marcarAlertaLeida(usuario, alerta): Marca una alerta como leída para un usuario específico.
+
+
+Test Unitarios
+
+instalar jest:
+
+>>npm install --save-dev jest
+
+ejecutar:
+ 
+>>npx jest
